@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedBillPro - Medical Billing Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Modern Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <style>
+                                        /* Typewriter animation for section header (reuse for services) */
+                                        .typewriter-services {
+                                            display: inline-block;
+                                            border-right: 2px solid #3109ce;
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            font-family: 'Montserrat', Arial, sans-serif;
+                                            font-size: 2.2rem;
+                                            font-weight: 700;
+                                            letter-spacing: 0.5px;
+                                            animation: typewriter-effect-services 2.2s steps(32) 1 normal both, blink-cursor-services 0.7s steps(1) infinite;
+                                        }
+                                        @keyframes typewriter-effect-services {
+                                            from { width: 0; }
+                                            to { width: 100%; }
+                                        }
+                                        @keyframes blink-cursor-services {
+                                            0% { border-color: #3109ce; }
+                                            49% { border-color: #3109ce; }
+                                            50% { border-color: transparent; }
+                                            100% { border-color: transparent; }
+                                        }
+                                /* Typewriter animation for section header */
+                                .typewriter {
+                                    display: inline-block;
+                                    border-right: 2px solid #3109ce;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    font-family: 'Montserrat', Arial, sans-serif;
+                                    font-size: 2.2rem;
+                                    font-weight: 1000;
+                                    letter-spacing: 0.5px;
+                                    animation: typewriter-effect 2.2s steps(32) 1 normal both, blink-cursor 0.7s steps(1) infinite;
+                                }
+                                @keyframes typewriter-effect {
+                                    from { width: 0; }
+                                    to { width: 100%; }
+                                }
+                                @keyframes blink-cursor {
+                                    0% { border-color: #4f8cff; }
+                                    49% { border-color: #4f8cff; }
+                                    50% { border-color: transparent; }
+                                    100% { border-color: transparent; }
+                                }
+                        /* Testimonials Carousel Animation */
+                        .testimonials-grid {
+                            display: flex;
+                            overflow: hidden;
+                            width: 100%;
+                            position: relative;
+                            min-height: 260px;
+                        }
+                        .testimonial-card {
+                            min-width: 340px;
+                            max-width: 340px;
+                            margin: 0 1.2rem;
+                            flex: 0 0 auto;
+                            background: rgba(255,255,255,0.08);
+                            border-radius: 18px;
+                            box-shadow: 0 2px 16px rgba(31,38,135,0.08);
+                            padding: 2rem 1.2rem;
+                            color: #222;
+                            font-family: 'Inter', Arial, sans-serif;
+                            transition: box-shadow 0.2s;
+                        }
+                        .testimonial-card:hover {
+                            box-shadow: 0 4px 32px rgba(80,180,255,0.18);
+                        }
+                        .testimonials-grid .carousel-track {
+                            display: flex;
+                            width: max-content;
+                            animation: testimonial-carousel 32s linear infinite;
+                        }
+                        @keyframes testimonial-carousel {
+                            0% { transform: translateX(0); }
+                            100% { transform: translateX(-50%); }
+                        }
+                        @media (max-width: 900px) {
+                            .testimonial-card {
+                                min-width: 260px;
+                                max-width: 260px;
+                                padding: 1.2rem 0.7rem;
+                            }
+                        }
+                /* Features Section Animations */
+                .features-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                    gap: 2rem;
+                }
+                .feature-card {
+                    opacity: 0;
+                    transform: translateY(40px) scale(0.98);
+                    transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
+                }
+                .feature-card.animated {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+            width: 42%;
+            z-index: 2;
+            color: #fff;
+            font-family: 'Inter', 'Montserrat', Arial, sans-serif;
+            text-align: left;
+            /* background removed */
+            /* backdrop-filter removed */
+            border-radius: 32px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+            padding: 3rem 2.5rem 2.5rem 2.5rem;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            min-width: 320px;
+            max-width: 600px;
+            animation: hero-glass-fadein 1.2s cubic-bezier(.77,0,.18,1) both;
+        }
+        @keyframes hero-glass-fadein {
+            0% { opacity: 0; transform: translateY(-60%) scale(0.98); }
+            100% { opacity: 1; transform: translateY(-50%) scale(1); }
+        }
+        .hero-title {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.18);
+        }
+        .hero-subtitle {
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: #f3f6fa;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.12);
+        }
+        .hero-cta {
+            opacity: 0;
+            pointer-events: none;
+            margin-top: 2rem;
+            text-align: left;
+            position: relative;
+            z-index: 3;
+            transition: opacity 0.6s ease;
+            gap: 1rem;
+            display: flex;
+        }
+        .hero-cta.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .btn.btn-primary.btn-large {
+            font-size: 1.1rem;
+            padding: 0.9rem 2.2rem;
+            border-radius: 24px;
+            font-weight: 600;
+            background: linear-gradient(90deg, #4f8cff 0%, #38d6ff 100%);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(80, 180, 255, 0.18);
+            border: none;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .btn.btn-primary.btn-large:hover {
+            background: linear-gradient(90deg, #38d6ff 0%, #4f8cff 100%);
+            box-shadow: 0 4px 16px rgba(80, 180, 255, 0.28);
+        }
+        .btn.btn-secondary.btn-large {
+            font-size: 1.1rem;
+            padding: 0.9rem 2.2rem;
+            border-radius: 24px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.18);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.28);
+            box-shadow: 0 2px 8px rgba(80, 180, 255, 0.08);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .btn.btn-secondary.btn-large:hover {
+            background: rgba(255,255,255,0.28);
+            box-shadow: 0 4px 16px rgba(80, 180, 255, 0.18);
+        }
+        @media (max-width: 900px) {
+            .hero-content {
+                width: 90%;
+                left: 5%;
+                padding: 2rem 1rem;
+                min-width: 0;
+                max-width: 98vw;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero-content {
+                width: 98%;
+                left: 1%;
+                padding: 1rem 0.5rem;
+                border-radius: 16px;
+            }
+            .hero-title {
+                font-size: 1.4rem;
+            }
+        }
+        .hero-cta {
+            opacity: 0;
+            pointer-events: none;
+            margin-top: 2rem;
+            text-align: left;
+            position: relative;
+            z-index: 3;
+            transition: opacity 0.6s ease;
+            gap: 1rem;
+            display: flex;
+        }
+        .hero-cta.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        @media (max-width: 900px) {
+            .hero-content {
+                width: 90%;
+                left: 5%;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero-content {
+                width: 98%;
+                left: 1%;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    MedBill<span class="logo-light">Pro</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav-desktop">
+                    <a href="#services">Services</a>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <button class="btn btn-primary">Get Started</button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile" id="mobileNav">
+                <a href="#services">Services</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <button class="btn btn-primary btn-full">Get Started</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero">
+        <!-- Video Background -->
+        <video id="heroVideo" autoplay muted playsinline loop class="hero-video">
+            <source src="assets\banner.mp4" type="video/mp4">
+        </video>
+
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title fade-in-up">
+                    Simplifying Medical Billing,<br>
+                    Amplifying Your Revenue
+                </h1>
+                
+                <p class="hero-subtitle fade-in-up delay-1">
+                    Transform your healthcare practice with our cutting-edge billing solutions.
+                    We handle the complexity, so you can focus on patient care.
+                </p>
+
+                <!-- CTA Buttons (Hidden initially, shown after video ends) -->
+                <div class="hero-cta" id="heroCTA">
+                    <button class="btn btn-primary btn-large">
+                        Get Started Free
+                        <svg class="icon-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-secondary btn-large">
+                        Schedule a Demo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <!-- <div class="scroll-indicator fade-in delay-2">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="typewriter">Why Healthcare Providers Trust Us</h2>
+                <p>Comprehensive billing solutions designed specifically for modern healthcare practices</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Lightning Fast Processing</h3>
+                    <p>Process claims 10x faster with our automated billing system and intelligent claim scrubbing.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>HIPAA Compliant</h3>
+                    <p>Bank-level encryption and complete HIPAA compliance to protect patient data and your practice.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="17 6 23 6 23 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Maximize Revenue</h3>
+                    <p>Increase collections by up to 30% with our advanced denial management and follow-up systems.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="12 6 12 12 16 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Real-Time Updates</h3>
+                    <p>Track claim status in real-time with instant notifications and comprehensive analytics dashboard.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Dedicated Support</h3>
+                    <p>Get 24/7 access to billing experts who understand your specialty and payer requirements.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>99.5% Accuracy</h3>
+                    <p>Industry-leading accuracy rate reduces rejections and speeds up reimbursement timelines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="typewriter-services">Comprehensive Billing Services</h2>
+                <p>Everything you need to optimize your practice's financial health</p>
+            </div>
+
+            <!-- Service 1 -->
+            <div class="service-row">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1740908900846-4bbd4f22c975?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlJTIwZGF0YSUyMGFuYWx5dGljc3xlbnwxfHx8fDE3NzE1NjYwNDZ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Revenue Cycle Management">
+                </div>
+                
+                <div class="service-content">
+                    <h3>Revenue Cycle Management</h3>
+                    <p class="service-description">End-to-end management of your revenue cycle from patient registration to final payment collection.</p>
+                    
+                    <ul class="service-features">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Patient eligibility verification
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Prior authorization
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Payment posting
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Financial reporting
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-row service-row-reverse">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1691934310598-27528df21f9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwYmlsbGluZyUyMG9mZmljZSUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzcxNTY2MDQ2fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Claims Management">
+                </div>
+                
+                <div class="service-content">
+                    <h3>Claims Management</h3>
+                    <p class="service-description">Streamlined claims submission and tracking with intelligent denial prevention and resolution.</p>
+                    
+                    <ul class="service-features">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Electronic claim submission
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Denial management
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Appeals handling
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Payer follow-up
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-row">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwcHJvZmVzc2lvbmFsJTIwZG9jdG9yJTIwaGVhbHRoY2FyZXxlbnwxfHx8fDE3NzE1MDAyODN8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Medical Coding">
+                </div>
+                
+                <div class="service-content">
+                    <h3>Medical Coding</h3>
+                    <p class="service-description">Expert certified coders ensure accurate ICD-10, CPT, and HCPCS coding for maximum reimbursement.</p>
+                    
+                    <ul class="service-features">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            ICD-10 coding
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            CPT coding
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Compliance audits
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Chart reviews
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="5000">0</div>
+                    <div class="stat-suffix">+</div>
+                    <p class="stat-label">Healthcare Providers</p>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-suffix">%</div>
+                    <p class="stat-label">Client Satisfaction</p>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-suffix">M+</div>
+                    <p class="stat-label">Claims Processed</p>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-suffix">/7</div>
+                    <p class="stat-label">Expert Support</p>
+                </div>
+            </div>o
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted by Healthcare Professionals</h2>
+                <p>See what doctors are saying about our billing services</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="carousel-track">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-content">"Switching to this billing service was the best decision for our practice. Our revenue increased by 28% in the first quarter alone."</p>
+                        <div class="testimonial-author">
+                            <p class="author-name">Dr. Sarah Mitchell</p>
+                            <p class="author-role">Family Practice</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-content">"The team handles everything seamlessly. I can finally focus on my patients without worrying about billing headaches."</p>
+                        <div class="testimonial-author">
+                            <p class="author-name">Dr. James Park</p>
+                            <p class="author-role">Orthopedic Surgeon</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-content">"Outstanding support and incredible accuracy. They catch errors before claims go out and their follow-up is exceptional."</p>
+                        <div class="testimonial-author">
+                            <p class="author-name">Dr. Emily Rodriguez</p>
+                            <p class="author-role">Pediatrics</p>
+                        </div>
+                    </div>
+                    <!-- Repeat testimonials for seamless loop -->
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-content">"Switching to this billing service was the best decision for our practice. Our revenue increased by 28% in the first quarter alone."</p>
+                        <div class="testimonial-author">
+                            <p class="author-name">Dr. Sarah Mitchell</p>
+                            <p class="author-role">Family Practice</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-content">"The team handles everything seamlessly. I can finally focus on my patients without worrying about billing headaches."</p>
+                        <div class="testimonial-author">
+                            <p class="author-name">Dr. James Park</p>
+                            <p class="author-role">Orthopedic Surgeon</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-content">"Outstanding support and incredible accuracy. They catch errors before claims go out and their follow-up is exceptional."</p>
+                        <div class="testimonial-author">
+                            <p class="author-name">Dr. Emily Rodriguez</p>
+                            <p class="author-role">Pediatrics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Practice's Revenue?</h2>
+                
+                <p class="cta-subtitle">
+                    Join thousands of healthcare providers who have streamlined their billing
+                    and increased revenue with our proven solutions.
+                </p>
+
+                <div class="cta-buttons">
+                    <button class="btn btn-white btn-large">
+                        Start Free Trial
+                        <svg class="icon-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="btn btn-outline btn-large">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        (800) 123-4567
+                    </button>
+                </div>
+
+                <p class="cta-note">
+                    No credit card required • Setup in minutes • Cancel anytime
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        MedBill<span class="logo-light">Pro</span>
+                    </div>
+                    <p class="footer-description">
+                        Simplifying medical billing for healthcare providers nationwide.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="22,6 12,13 2,6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Revenue Cycle Management</a></li>
+                        <li><a href="#">Claims Management</a></li>
+                        <li><a href="#">Medical Coding</a></li>
+                        <li><a href="#">Credentialing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">HIPAA Compliance</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 MedBillPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+        <script>
+        // Show CTA after 10 seconds of page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const cta = document.getElementById('heroCTA');
+            setTimeout(function() {
+                if (cta) {
+                    cta.classList.add('active');
+                }
+            }, 10000);
+
+            // Animate feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            const animateFeatures = () => {
+                featureCards.forEach((card, idx) => {
+                    setTimeout(() => {
+                        card.classList.add('animated');
+                    }, idx * 200 + 200);
+                });
+            };
+            // Use IntersectionObserver for better performance
+            const featuresGrid = document.querySelector('.features-grid');
+            if (featuresGrid) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateFeatures();
+                            observer.disconnect();
+                        }
+                    });
+                }, { threshold: 0.2 });
+                observer.observe(featuresGrid);
+            }
+        });
+        </script>
+    <script>
+    // Show CTA after 10 seconds of page load
+    window.addEventListener('DOMContentLoaded', function() {
+        const cta = document.getElementById('heroCTA');
+        setTimeout(function() {
+            if (cta) {
+                cta.classList.add('active');
+            }
+        }, 10000);
+    });
+    </script>
+</body>
+</html>
