@@ -27,19 +27,14 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Video Hero - Show CTA after first video playthrough
+// Video Hero - Show CTA after 2 seconds
 const heroVideo = document.getElementById('heroVideo');
 const heroCTA = document.getElementById('heroCTA');
 
-let videoEndedOnce = false;
-
-heroVideo.addEventListener('ended', () => {
-    if (!videoEndedOnce) {
+window.addEventListener('load', () => {
+    setTimeout(() => {
         heroCTA.classList.add('show');
-        videoEndedOnce = true;
-        // Continue looping the video
-        heroVideo.play();
-    }
+    }, 2000); // 2 seconds
 });
 
 // Animated Stats Counter
